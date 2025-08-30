@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 /* Dark Theme Variables */
 :root {
@@ -39,7 +40,6 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body {
@@ -47,13 +47,6 @@ body {
   background: linear-gradient(135deg, var(--dark-900) 0%, var(--dark-800) 100%);
   font-feature-settings: "rlig" 1, "calt" 1;
   overflow-x: hidden;
-  min-height: 100vh;
-  
-  /* Performance optimizations for smoother animations */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transform: translateZ(0); /* Enable hardware acceleration */
-  backface-visibility: hidden;
 }
 
 /* Scrollbar Styling */
@@ -113,9 +106,6 @@ body {
   -webkit-text-fill-color: transparent;
   background-size: 200% 200%;
   animation: gradientShift 3s ease infinite;
-  line-height: 1.1;
-  padding-bottom: 0.2em; /* Prevent descender clipping for letters like 'g', 'y', 'p' */
-  display: inline-block; /* Ensure padding is respected */
 }
 
 /* Neon Border Effect */
@@ -126,26 +116,20 @@ body {
   border-radius: 1rem;
 }
 
-/* Custom Animations - Optimized for performance */
+/* Custom Animations */
 @keyframes gradientShift {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px) translateZ(0); }
-  50% { transform: translateY(-10px) translateZ(0); }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
 }
 
 @keyframes pulse-pink {
-  0%, 100% { 
-    box-shadow: 0 0 20px rgba(255, 77, 166, 0.4);
-    transform: scale(1) translateZ(0);
-  }
-  50% { 
-    box-shadow: 0 0 40px rgba(255, 77, 166, 0.8);
-    transform: scale(1.02) translateZ(0);
-  }
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 77, 166, 0.4); }
+  50% { box-shadow: 0 0 40px rgba(255, 77, 166, 0.8); }
 }
 
 @keyframes typing {
@@ -159,49 +143,17 @@ body {
 }
 
 @keyframes glow {
-  0%, 100% { 
-    filter: brightness(1) saturate(1);
-    transform: translateZ(0);
-  }
-  50% { 
-    filter: brightness(1.15) saturate(1.2);
-    transform: translateZ(0);
-  }
+  0%, 100% { filter: brightness(1) saturate(1); }
+  50% { filter: brightness(1.2) saturate(1.3); }
 }
 
-/* Optimized fade-in animation */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px) translateZ(0);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) translateZ(0);
-  }
-}
-
-/* Optimized fade-in animation */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px) translateZ(0);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) translateZ(0);
-  }
-}
-
-/* Animation Classes - Performance optimized */
+/* Animation Classes */
 .float-animation {
   animation: float 6s ease-in-out infinite;
-  will-change: transform;
 }
 
 .pulse-pink {
   animation: pulse-pink 2s ease-in-out infinite;
-  will-change: transform, box-shadow;
 }
 
 .animate-typing {
@@ -213,34 +165,4 @@ body {
 
 .animate-glow {
   animation: glow 2s ease-in-out infinite alternate;
-  will-change: filter, transform;
-}
-
-.animate-fade-up {
-  animation: fadeInUp 0.8s ease-out forwards;
-}
-
-/* Performance optimizations for interactive elements */
-.interactive {
-  will-change: transform, opacity;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.interactive:hover {
-  transform: translateY(-2px) translateZ(0);
-}
-
-/* Reduce motion for accessibility */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  
-  .float-animation,
-  .pulse-pink,
-  .animate-glow {
-    animation: none;
-  }
 }
