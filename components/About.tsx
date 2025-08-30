@@ -280,7 +280,7 @@ export default function About() {
                       ESG risk assessment, geospatial intelligence, and data-driven decision-making. My academic 
                       background in Geology and Mining Engineering strengthens my technical foundation, allowing 
                       me to bridge environmental science, business needs, and cutting-edge AI. A creative 
-                      problem-solver and lifelong learner, I'm passionate about building meaningful technologies 
+                      problem-solver and lifelong learner, I&apos;m passionate about building meaningful technologies 
                       that drive growth, support sustainability, and create real-world impact.
                     </p>
                   </div>

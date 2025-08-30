@@ -22,7 +22,7 @@ import {
   Sparkles
 } from "lucide-react";
 import Link from "next/link";
-import { useForm, type FieldValues } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
@@ -44,22 +44,6 @@ const containerVariants: Variants = {
     transition: {
       staggerChildren: 0.15,
       delayChildren: 0.2,
-    },
-  },
-};
-
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 40, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { 
-      duration: 0.7, 
-      ease: [0.4, 0, 0.2, 1],
-      type: "spring",
-      stiffness: 80,
-      damping: 20
     },
   },
 };
@@ -103,7 +87,7 @@ export default function Contact() {
     formState: { errors },
     reset,
   } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema as any),
+    resolver: zodResolver(contactFormSchema),
   });
 
   const onSubmit = async (data: ContactFormData) => {
@@ -217,7 +201,7 @@ export default function Contact() {
               Get In <span className="text-gradient">Touch</span>
             </motion.h2>
             <motion.p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-              Ready to collaborate on innovative projects? Let's build something amazing together.
+              Ready to collaborate on innovative projects? Let&apos;s build something amazing together.
             </motion.p>
           </motion.div>
 
@@ -244,7 +228,7 @@ export default function Contact() {
                         <Sparkles className="w-10 h-10 text-green-400" />
                       </motion.div>
                       <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
-                      <p className="text-white/80">Thanks for reaching out. I'll get back to you soon!</p>
+                      <p className="text-white/80">Thanks for reaching out. I&apos;ll get back to you soon!</p>
                     </div>
                   </motion.div>
                 )}
@@ -320,7 +304,7 @@ export default function Contact() {
                         {...register("subject")}
                         className="bg-dark-800/50 border-pink-500/30 text-white placeholder:text-white/50 
                                  focus:border-pink-400/70 focus:ring-pink-400/30 transition-all duration-300"
-                        placeholder="What's this about?"
+                        placeholder="What&apos;s this about?"
                         disabled={isSubmitting}
                       />
                       {errors.subject && (
