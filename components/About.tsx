@@ -233,7 +233,7 @@ export default function About() {
                   { icon: Briefcase, label: "Role", value: "ML Engineer" },
                   { icon: GraduationCap, label: "Education", value: "UP Diliman" },
                   { icon: User, label: "Experience", value: "5+ Years" },
-                ].map((item, index) => (
+                ].map((item) => (
                   <motion.div
                     key={item.label}
                     variants={itemVariants}

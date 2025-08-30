@@ -206,7 +206,7 @@ export default function Portfolio() {
             </motion.h3>
             
             <div className="grid lg:grid-cols-2 gap-8">
-              {featuredProjects.map((project, index) => (
+              {featuredProjects.map((project) => (
                 <motion.div
                   key={project.id}
                   variants={projectVariants}
@@ -383,7 +383,7 @@ export default function Portfolio() {
             </motion.h3>
             
             <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
-              {otherProjects.map((project, index) => (
+              {otherProjects.map((project) => (
                 <motion.div
                   key={project.id}
                   variants={projectVariants}

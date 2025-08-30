@@ -8,7 +8,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Github, Linkedin, Mail, Sparkles, Code, Brain } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, Sparkles, Brain } from "lucide-react";
 
 export default function Hero() {
   const [typedText, setTypedText] = useState("");
