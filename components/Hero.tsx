@@ -176,9 +176,9 @@ export default function Hero() {
                        text-pink-300 text-sm font-medium shadow-pink-lg animate-pulse-pink 
                        mt-6 sm:mt-8 lg:mt-10 interactive shimmer"
           >
-            <Zap className="w-5 h-5 animate-twinkle" />
+            <Zap className="w-5 h-5" />
             <span className="glow-text">Open to collaborations</span>
-            <Sparkles className="w-4 h-4 animate-float" />
+            <Sparkles className="w-4 h-4" />
           </motion.div>
 
           {/* Enhanced Name and Title with improved spacing */}
