@@ -62,6 +62,7 @@ export default function Contact() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string>('');
   const [isClient, setIsClient] = useState(false);
 
   // Generate deterministic particle positions to avoid hydration mismatch
@@ -92,9 +93,9 @@ export default function Contact() {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
+    setSubmitError('');
     
     try {
-      // Replace with your actual form submission endpoint
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -103,16 +104,18 @@ export default function Contact() {
         body: JSON.stringify(data),
       });
 
+      const result = await response.json();
+
       if (response.ok) {
         setIsSubmitted(true);
         reset();
         setTimeout(() => setIsSubmitted(false), 5000); // Reset after 5 seconds
       } else {
-        throw new Error('Failed to send message');
+        throw new Error(result.message || 'Failed to send message');
       }
     } catch (error) {
       console.error('Error sending message:', error);
-      // Handle error (show toast notification, etc.)
+      setSubmitError(error instanceof Error ? error.message : 'Failed to send message. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -229,6 +232,29 @@ export default function Contact() {
                       </motion.div>
                       <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
                       <p className="text-white/80">Thanks for reaching out. I&apos;ll get back to you soon!</p>
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* Error State */}
+                {submitError && (
+                  <motion.div
+                    className="mb-6 p-4 bg-red-500/20 border border-red-500/30 rounded-lg"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                  >
+                    <div className="flex items-center gap-2">
+                      <div className="w-5 h-5 rounded-full bg-red-500/30 flex items-center justify-center">
+                        <span className="text-red-400 text-xs">!</span>
+                      </div>
+                      <p className="text-red-200 text-sm">{submitError}</p>
+                      <button
+                        onClick={() => setSubmitError('')}
+                        className="ml-auto text-red-400 hover:text-red-300 transition-colors"
+                      >
+                        ×
+                      </button>
                     </div>
                   </motion.div>
                 )}
