@@ -142,8 +142,9 @@ export default function Hero() {
             <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight 
                           leading-[0.9] sm:leading-[0.9] md:leading-[0.9] lg:leading-[0.9] 
                           pb-3 sm:pb-4 md:pb-6 lg:pb-8">
-              <span className="block text-white mb-2 sm:mb-3">Ken</span>
-              <span className="block text-gradient animate-glow">Realingo</span>
+              {/* Mobile: stacked layout, Tablet+: inline layout */}
+              <span className="block sm:inline text-white sm:mr-4 mb-2 sm:mb-0">Ken</span>
+              <span className="block sm:inline text-gradient animate-glow">Realingo</span>
             </h1>
             
             <motion.h2 
