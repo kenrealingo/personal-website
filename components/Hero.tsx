@@ -137,11 +137,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-            className="space-y-3 sm:space-y-4 lg:space-y-6"
+            className="space-y-2 sm:space-y-3 lg:space-y-4"
           >
             <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight 
                           leading-[0.9] sm:leading-[0.9] md:leading-[0.9] lg:leading-[0.9] 
-                          pb-3 sm:pb-4 md:pb-6 lg:pb-8">
+                          pb-1 sm:pb-2 md:pb-3 lg:pb-4">
               {/* Mobile: stacked layout, Tablet+: inline layout */}
               <span className="block sm:inline text-white sm:mr-4 mb-2 sm:mb-0">Ken</span>
               <span className="block sm:inline text-gradient animate-glow">Realingo</span>
@@ -149,7 +149,7 @@ export default function Hero() {
             
             <motion.h2 
               className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-white/90 
-                        px-4 sm:px-0 pt-4 sm:pt-6"
+                        px-4 sm:px-0 pt-1 sm:pt-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.6 }}
