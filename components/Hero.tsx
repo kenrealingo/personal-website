@@ -117,7 +117,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={controls}
-          className="text-center space-y-6 sm:space-y-8 lg:space-y-10 pb-24 sm:pb-28 lg:pb-32"
+          className="text-center space-y-4 sm:space-y-6 lg:space-y-8 pb-24 sm:pb-28 lg:pb-32"
         >
           {/* Status Badge */}
           <motion.div
@@ -126,7 +126,7 @@ export default function Hero() {
             transition={{ delay: 0.2, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
             className="inline-flex items-center gap-2 px-6 py-3 bg-dark-800/50 backdrop-blur-sm 
                        border border-pink-500/30 rounded-full text-pink-300 text-sm font-medium
-                       shadow-pink animate-pulse-pink mt-12 sm:mt-16 lg:mt-20"
+                       shadow-pink animate-pulse-pink mt-6 sm:mt-8 lg:mt-10"
           >
             <Sparkles className="w-4 h-4" />
             Open to collaborations
