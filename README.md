@@ -1,6 +1,6 @@
 # 🚀 Ken Realingo - Modern Portfolio Website
 
-A stunning, performance-optimized portfolio website for Machine Learning Engineer Ken Realingo. Built with cutting-edge technologies and featuring a unique dark theme with pink neon accents, glassmorphism effects, and buttery-smooth 60 FPS animations.
+A stunning, performance-optimized portfolio website for AI Engineer Ken Realingo. Built with cutting-edge technologies and featuring a unique dark theme with pink neon accents, glassmorphism effects, and buttery-smooth 60 FPS animations.
 
 ![Portfolio Preview](https://img.shields.io/badge/Status-Production%20Ready-brightgreen?style=for-the-badge) ![Next.js](https://img.shields.io/badge/Next.js-15.5.2-black?style=for-the-badge&logo=next.js) ![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?style=for-the-badge&logo=typescript)
 

@@ -9,8 +9,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Ken Realingo - Machine Learning Engineer",
-  description: "Machine Learning Engineer specializing in AI-powered ESG risk assessment, geospatial analytics, and environmental data science solutions.",
+  title: "Ken Realingo - AI Engineer",
+  description: "AI Engineer specializing in AI-powered ESG risk assessment, geospatial analytics, and environmental data science solutions.",
   keywords: ["Machine Learning", "AI", "ESG", "Geospatial Analytics", "Data Science", "Ken Realingo"],
   authors: [{ name: "Ken Realingo" }],
   creator: "Ken Realingo",
@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://kenrealingo.com",
-    title: "Ken Realingo - Machine Learning Engineer",
+    title: "Ken Realingo - AI Engineer",
     description: "Building AI solutions that bridge data, environment, and decision-making",
     siteName: "Ken Realingo Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ken Realingo - Machine Learning Engineer",
+    title: "Ken Realingo - AI Engineer",
     description: "Building AI solutions that bridge data, environment, and decision-making",
   },
 };

@@ -275,7 +275,7 @@ export default function About() {
                       strategic goals with technical execution.
                     </p>
                     <p className="text-white/80 leading-relaxed text-lg">
-                      Currently working as a Machine Learning Engineer, I focus on designing AI-driven tools for 
+                      Currently working as an AI Engineer, I focus on designing AI-driven tools for 
                       ESG risk assessment, geospatial intelligence, and data-driven decision-making. My academic 
                       background in Geology and Mining Engineering strengthens my technical foundation, allowing 
                       me to bridge environmental science, business needs, and cutting-edge AI. A creative 

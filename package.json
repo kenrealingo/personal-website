@@ -1,7 +1,7 @@
 {
   "name": "ken-realingo-portfolio",
   "version": "2.0.0",
-  "description": "Modern portfolio website for Ken Realingo - Machine Learning Engineer. Built with Next.js 15, TypeScript, Tailwind CSS, and Framer Motion.",
+  "description": "Modern portfolio website for Ken Realingo - AI Engineer. Built with Next.js 15, TypeScript, Tailwind CSS, and Framer Motion.",
   "author": {
     "name": "Ken Realingo",
     "email": "jlrealingo@gmail.com",

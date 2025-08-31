@@ -50,7 +50,7 @@ const yourInfo = {
 
 **Key areas to update:**
 - Line ~130: Replace "Ken Realingo" with your name
-- Line ~156: Update "Machine Learning Engineer" title
+- Line ~156: Update "AI Engineer" title
 - Line ~169: Replace tagline text
 - Lines ~225-240: Update social media links
 

@@ -203,7 +203,7 @@ export default function Hero() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.6 }}
             >
-              Machine Learning Engineer
+              AI Engineer
             </motion.h2>
           </motion.div>
 
