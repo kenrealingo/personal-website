@@ -243,7 +243,7 @@ export default function Hero() {
                          hover:scale-[1.02] hover:shadow-pink-xl interactive shimmer"
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <Brain className="mr-3 h-5 w-5 animate-float" />
+              <Brain className="mr-3 h-5 w-5" />
               <span className="relative z-10 glow-text">View My Work</span>
             </Button>
             
@@ -258,7 +258,7 @@ export default function Hero() {
               asChild
             >
               <a href="mailto:jlrealingo@gmail.com" className="flex items-center">
-                <Mail className="mr-3 h-5 w-5 animate-twinkle" />
+                <Mail className="mr-3 h-5 w-5" />
                 <span className="relative z-10 glow-text">Get In Touch</span>
               </a>
             </Button>
