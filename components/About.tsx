@@ -10,6 +10,7 @@ import { motion, useInView, type Variants } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { User, MapPin, GraduationCap, Briefcase } from "lucide-react";
+import Image from "next/image";
 
 // Animation variants for stagger effect
 const containerVariants: Variants = {
@@ -183,22 +184,20 @@ export default function About() {
                           }}
                         />
                         
-                        {/* Profile Placeholder */}
+                        {/* Profile Photo */}
                         <motion.div 
-                          className="relative z-10 w-32 h-32 bg-gradient-to-br from-pink-400 to-purple-500 rounded-full flex items-center justify-center text-6xl font-bold text-white shadow-2xl"
+                          className="relative z-10 w-full h-full rounded-2xl overflow-hidden shadow-2xl"
                           whileHover={{ scale: 1.05 }}
                           transition={{ type: "spring", stiffness: 300 }}
                         >
-                          KR
+                          <Image
+                            src="/images/profile photo.jpg"
+                            alt="Profile Photo"
+                            fill
+                            className="object-cover rounded-2xl"
+                            priority
+                          />
                         </motion.div>
-                        
-                        {/* Add your actual photo here when ready */}
-                        {/* <Image
-                          src="/profile.jpg"
-                          alt="Ken Realingo"
-                          fill
-                          className="object-cover"
-                        /> */}
                         
                         {/* Floating Particles - Client-side only */}
                         {isClient && particles.map((particle) => (
