@@ -1,33 +1,54 @@
 /**
- * Hero Section Component - Dark Theme with Pink Accents
- * Stunning fullscreen hero with typing animations and neon effects
+ * Hero Section Component - Futuristic Dark Theme with Aurora Effects
+ * Cyberpunk-minimalist design with particle systems and advanced animations
  */
 
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Github, Linkedin, Mail, Sparkles, Brain } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, Sparkles, Brain, Zap } from "lucide-react";
 
 export default function Hero() {
   const [typedText, setTypedText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isClient, setIsClient] = useState(false);
   const controls = useAnimation();
+  const { scrollYProgress } = useScroll();
+  const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.3], [1, 0.9]);
   
   const fullText = "Building AI solutions that bridge data, environment, and decision-making.";
   
-  // Generate deterministic particle positions to avoid hydration mismatch
+  // Enhanced particle system with different types
   const particles = useMemo(() => {
     if (!isClient) return [];
     
-    return Array.from({ length: 20 }).map((_, i) => ({
+    return Array.from({ length: 30 }).map((_, i) => ({
       id: i,
-      left: (i * 17 + 13) % 100, // Deterministic positioning
+      left: (i * 17 + 13) % 100,
       top: (i * 23 + 7) % 100,
-      duration: 2 + (i % 3), // Deterministic duration
-      delay: (i * 0.3) % 2, // Deterministic delay
+      duration: 3 + (i % 4),
+      delay: (i * 0.2) % 3,
+      size: 2 + (i % 3),
+      type: i % 3, // Different particle types
+      color: ['#ff4da6', '#a855f7', '#06b6d4'][i % 3],
+    }));
+  }, [isClient]);
+
+  // Floating orbs for background ambiance
+  const floatingOrbs = useMemo(() => {
+    if (!isClient) return [];
+    
+    return Array.from({ length: 8 }).map((_, i) => ({
+      id: i,
+      left: (i * 25 + 10) % 100,
+      top: (i * 35 + 15) % 100,
+      size: 100 + (i * 20),
+      duration: 15 + (i * 3),
+      delay: i * 2,
+      opacity: 0.1 + (i % 3) * 0.05,
     }));
   }, [isClient]);
 
@@ -54,53 +75,60 @@ export default function Hero() {
   }, [controls]);
 
   return (
-    <section className="min-h-screen relative flex items-center justify-center overflow-hidden 
-                       px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-      {/* Animated Background Elements */}
+    <motion.section 
+      className="min-h-screen relative flex items-center justify-center overflow-hidden 
+                       px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20"
+      style={{ opacity, scale }}
+    >
+      {/* Enhanced Animated Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Gradient Orbs - Optimized for performance */}
-        <motion.div 
-          className="absolute top-1/4 left-1/4 w-64 sm:w-80 lg:w-96 h-64 sm:h-80 lg:h-96 
-                     bg-pink-500/20 rounded-full filter blur-3xl"
-          animate={{ 
-            scale: [1, 1.1, 1],
-            opacity: [0.3, 0.4, 0.3]
-          }}
-          transition={{ 
-            duration: 12, 
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          style={{ willChange: 'transform, opacity' }}
-        />
-        <motion.div 
-          className="absolute bottom-1/4 right-1/4 w-56 sm:w-64 lg:w-80 h-56 sm:h-64 lg:h-80 
-                     bg-purple-500/20 rounded-full filter blur-3xl"
-          animate={{ 
-            scale: [1.1, 1, 1.1],
-            opacity: [0.4, 0.2, 0.4]
-          }}
-          transition={{ 
-            duration: 15, 
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          style={{ willChange: 'transform, opacity' }}
-        />
-        
-        {/* Floating Particles - Client-side only with optimized performance */}
+        {/* Aurora-like floating orbs */}
+        {isClient && floatingOrbs.map((orb) => (
+          <motion.div
+            key={orb.id}
+            className="absolute rounded-full filter blur-3xl"
+            style={{
+              left: `${orb.left}%`,
+              top: `${orb.top}%`,
+              width: `${orb.size}px`,
+              height: `${orb.size}px`,
+              background: `radial-gradient(circle, rgba(255, 77, 166, ${orb.opacity}) 0%, rgba(168, 85, 247, ${orb.opacity * 0.7}) 50%, transparent 100%)`,
+              willChange: 'transform, opacity'
+            }}
+            animate={{ 
+              scale: [1, 1.2, 0.8, 1],
+              opacity: [orb.opacity, orb.opacity * 1.5, orb.opacity * 0.5, orb.opacity],
+              x: [-20, 20, -10, 0],
+              y: [-10, 10, -20, 0]
+            }}
+            transition={{ 
+              duration: orb.duration, 
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: orb.delay
+            }}
+          />
+        ))}
+
+        {/* Enhanced particle system */}
         {isClient && particles.map((particle) => (
           <motion.div
             key={particle.id}
-            className="absolute w-1 h-1 sm:w-2 sm:h-2 bg-pink-400/50 rounded-full"
+            className="absolute rounded-full opacity-70"
             style={{
               left: `${particle.left}%`,
               top: `${particle.top}%`,
+              width: `${particle.size}px`,
+              height: `${particle.size}px`,
+              backgroundColor: particle.color,
+              boxShadow: `0 0 ${particle.size * 2}px ${particle.color}`,
               willChange: 'transform, opacity'
             }}
             animate={{
               y: [-20, -80, -20],
               opacity: [0, 0.8, 0],
+              scale: [0.5, 1, 0.5],
+              rotate: [0, 180, 360]
             }}
             transition={{
               duration: particle.duration,
@@ -110,46 +138,67 @@ export default function Hero() {
             }}
           />
         ))}
+
+        {/* Geometric grid pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="grid grid-cols-12 grid-rows-8 h-full w-full">
+            {Array.from({ length: 96 }).map((_, i) => (
+              <motion.div
+                key={i}
+                className="border border-pink-500/20"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: [0, 0.3, 0] }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  delay: i * 0.05,
+                  ease: "easeInOut"
+                }}
+              />
+            ))}
+          </div>
+        </div>
       </div>
 
-      <div className="container mx-auto max-w-6xl relative z-10 w-full">
+      <div className="container mx-auto max-w-6xl relative z-10 w-full px-4">
         {/* Main Hero Content */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={controls}
           className="text-center space-y-4 sm:space-y-6 lg:space-y-8 pb-24 sm:pb-28 lg:pb-32"
         >
-          {/* Status Badge */}
+          {/* Enhanced Status Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-dark-800/50 backdrop-blur-sm 
-                       border border-pink-500/30 rounded-full text-pink-300 text-sm font-medium
-                       shadow-pink animate-pulse-pink mt-6 sm:mt-8 lg:mt-10"
+            className="inline-flex items-center gap-3 px-8 py-4 glass neon-border
+                       text-pink-300 text-sm font-medium shadow-pink-lg animate-pulse-pink 
+                       mt-6 sm:mt-8 lg:mt-10 interactive shimmer"
           >
-            <Sparkles className="w-4 h-4" />
-            Open to collaborations
+            <Zap className="w-5 h-5 animate-twinkle" />
+            <span className="glow-text">Open to collaborations</span>
+            <Sparkles className="w-4 h-4 animate-float" />
           </motion.div>
 
-          {/* Name and Title */}
+          {/* Enhanced Name and Title with improved spacing */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
             className="space-y-2 sm:space-y-3 lg:space-y-4"
           >
-            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight 
-                          leading-[0.9] sm:leading-[0.9] md:leading-[0.9] lg:leading-[0.9] 
-                          pb-1 sm:pb-2 md:pb-3 lg:pb-4">
+            <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] font-bold tracking-tight 
+                          leading-[0.85] sm:leading-[0.85] md:leading-[0.85] lg:leading-[0.85] 
+                          pb-1 sm:pb-2 md:pb-3 lg:pb-4 animate-slide-up">
               {/* Mobile: stacked layout, Tablet+: inline layout */}
-              <span className="block sm:inline text-white sm:mr-4 mb-2 sm:mb-0">Ken</span>
+              <span className="block sm:inline text-white glow-text sm:mr-6 mb-2 sm:mb-0">Ken</span>
               <span className="block sm:inline text-gradient animate-glow">Realingo</span>
             </h1>
             
             <motion.h2 
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-white/90 
-                        px-4 sm:px-0 pt-1 sm:pt-2"
+              className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-white/90 
+                        px-4 sm:px-0 pt-1 sm:pt-2 glow-text animate-slide-up"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.6 }}
@@ -158,7 +207,7 @@ export default function Hero() {
             </motion.h2>
           </motion.div>
 
-          {/* Typing Tagline */}
+          {/* Enhanced Typing Tagline */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -166,19 +215,19 @@ export default function Hero() {
             className="max-w-4xl mx-auto px-4 sm:px-0"
           >
             <p className="text-base sm:text-xl md:text-2xl text-white/80 font-light 
-                         leading-relaxed min-h-[2rem] sm:min-h-[3rem]">
+                         leading-relaxed min-h-[2rem] sm:min-h-[3rem] glow-text">
               {typedText}
               <motion.span
                 animate={{ opacity: [1, 0] }}
                 transition={{ duration: 0.8, repeat: Infinity }}
-                className="text-pink-400"
+                className="text-pink-400 ml-1"
               >
                 |
               </motion.span>
             </p>
           </motion.div>
 
-          {/* CTA Buttons */}
+          {/* Enhanced CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -190,38 +239,32 @@ export default function Hero() {
               size="lg" 
               className="group relative overflow-hidden px-8 py-4 
                          text-base sm:text-lg font-semibold w-full sm:w-auto
-                         bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-400 hover:to-pink-500
-                         border-0 rounded-2xl shadow-pink-lg transition-all duration-300
-                         hover:scale-[1.02] hover:shadow-pink-xl interactive"
+                         glass neon-border shadow-pink-lg transition-all duration-300
+                         hover:scale-[1.02] hover:shadow-pink-xl interactive shimmer"
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <Brain className="mr-2 h-5 w-5" />
-              <span className="relative z-10">View My Work</span>
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-pink-400 to-purple-500"
-                initial={{ scale: 0, opacity: 0 }}
-                whileHover={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                style={{ borderRadius: "1rem" }}
-              />
+              <Brain className="mr-3 h-5 w-5 animate-float" />
+              <span className="relative z-10 glow-text">View My Work</span>
             </Button>
             
             <Button 
-              variant="outline" 
               size="lg" 
-              className="group px-8 py-4 text-base sm:text-lg font-semibold
-                         w-full sm:w-auto
-                         bg-transparent border-2 border-pink-500/50 text-white
-                         hover:bg-pink-500/10 hover:border-pink-400 rounded-2xl
-                         transition-all duration-300 hover:scale-[1.02] neon-border interactive"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              variant="outline"
+              className="group relative overflow-hidden px-8 py-4 
+                         text-base sm:text-lg font-semibold w-full sm:w-auto
+                         glass neon-border text-pink-300 hover:text-white
+                         shadow-pink transition-all duration-300
+                         hover:scale-[1.02] hover:shadow-pink-xl interactive"
+              asChild
             >
-              <Mail className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
-              Get In Touch
+              <a href="mailto:jlrealingo@gmail.com" className="flex items-center">
+                <Mail className="mr-3 h-5 w-5 animate-twinkle" />
+                <span className="relative z-10 glow-text">Get In Touch</span>
+              </a>
             </Button>
           </motion.div>
 
-          {/* Social Links */}
+          {/* Enhanced Social Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -295,6 +338,6 @@ export default function Hero() {
           </motion.button>
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }

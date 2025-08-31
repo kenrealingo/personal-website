@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Dark Theme Variables */
+/* Enhanced Dark Theme Variables */
 :root {
   --background: #0d0d0d;
   --foreground: #ffffff;
@@ -21,16 +21,21 @@
   --border: rgba(255, 77, 166, 0.2);
   --input: rgba(30, 30, 30, 0.5);
   --ring: #ff4da6;
-  --radius: 0.75rem;
+  --radius: 1.5rem;
   
-  /* Dark theme specific colors */
+  /* Enhanced dark theme colors */
   --dark-900: #0d0d0d;
   --dark-800: #1a1a1a;
   --dark-700: #2d2d2d;
+  --dark-600: #404040;
   
-  /* Pink accent variations */
-  --pink-glow: rgba(255, 77, 166, 0.3);
-  --purple-glow: rgba(168, 85, 247, 0.3);
+  /* Enhanced pink/purple accent variations */
+  --pink-glow: rgba(255, 77, 166, 0.4);
+  --purple-glow: rgba(168, 85, 247, 0.4);
+  --cyan-glow: rgba(6, 182, 212, 0.3);
+  --aurora-pink: rgba(255, 77, 166, 0.15);
+  --aurora-purple: rgba(168, 85, 247, 0.15);
+  --aurora-cyan: rgba(6, 182, 212, 0.15);
 }
 
 * {
@@ -42,12 +47,18 @@ html {
   overflow-x: hidden;
 }
 
+/* Enhanced body with aurora-like gradient */
 body {
   color: var(--foreground);
-  background: linear-gradient(135deg, var(--dark-900) 0%, var(--dark-800) 100%);
+  background: 
+    radial-gradient(ellipse at 20% 50%, var(--aurora-pink) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, var(--aurora-purple) 0%, transparent 50%),
+    radial-gradient(ellipse at 40% 80%, var(--aurora-cyan) 0%, transparent 50%),
+    linear-gradient(135deg, var(--dark-900) 0%, var(--dark-800) 50%, #1a1a2e 100%);
   font-feature-settings: "rlig" 1, "calt" 1;
   overflow-x: hidden;
   min-height: 100vh;
+  position: relative;
   
   /* Performance optimizations for smoother animations */
   -webkit-font-smoothing: antialiased;
@@ -74,77 +85,276 @@ body {
   background: linear-gradient(180deg, #ff66b2, #ff4da6);
 }
 
-/* Glassmorphism Effect */
+/* Enhanced Glassmorphism Effects */
 .glass {
   background: rgba(26, 26, 26, 0.7);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 77, 166, 0.1);
+  border-radius: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Pink Glow Effects */
+.glass:hover {
+  background: rgba(26, 26, 26, 0.8);
+  border: 1px solid rgba(255, 77, 166, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 20px 40px rgba(255, 77, 166, 0.15),
+    0 10px 20px rgba(168, 85, 247, 0.1);
+}
+
+/* Enhanced Glow Effects */
 .pink-glow {
-  box-shadow: 0 0 20px rgba(255, 77, 166, 0.3);
+  box-shadow: 0 0 30px rgba(255, 77, 166, 0.4);
 }
 
 .shadow-pink {
-  box-shadow: 0 4px 20px rgba(255, 77, 166, 0.3);
+  box-shadow: 
+    0 4px 20px rgba(255, 77, 166, 0.3),
+    0 2px 8px rgba(168, 85, 247, 0.2);
 }
 
 .shadow-pink-lg {
-  box-shadow: 0 10px 40px rgba(255, 77, 166, 0.4);
+  box-shadow: 
+    0 10px 40px rgba(255, 77, 166, 0.4),
+    0 5px 20px rgba(168, 85, 247, 0.3);
 }
 
 .shadow-pink-xl {
-  box-shadow: 0 20px 60px rgba(255, 77, 166, 0.5);
+  box-shadow: 
+    0 20px 60px rgba(255, 77, 166, 0.5),
+    0 10px 30px rgba(168, 85, 247, 0.4),
+    0 5px 15px rgba(6, 182, 212, 0.3);
 }
 
-/* Animated Background Gradient */
+/* Shimmer Effect */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 77, 166, 0.2),
+    rgba(255, 77, 166, 0.4),
+    rgba(255, 77, 166, 0.2),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+/* Enhanced Animated Background */
 .animated-bg {
-  background: linear-gradient(-45deg, #0d0d0d, #1a1a1a, #0f0f0f, #1f1f1f);
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
+  background: 
+    radial-gradient(ellipse at 15% 40%, var(--aurora-pink) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 30%, var(--aurora-purple) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 90%, var(--aurora-cyan) 0%, transparent 50%),
+    linear-gradient(-45deg, #0d0d0d, #1a1a1a, #0f0f0f, #1f1f1f, #16213e);
+  background-size: 400% 400%, 300% 300%, 350% 350%, 200% 200%;
+  animation: 
+    gradientShift 20s ease infinite,
+    auroraFloat 15s ease-in-out infinite;
 }
 
-/* Text Gradient */
+/* Enhanced Text Gradient with Animation */
 .text-gradient {
-  background: linear-gradient(135deg, #ff4da6, #ff66b2, #a855f7);
+  background: linear-gradient(
+    135deg, 
+    #ff4da6 0%, 
+    #ff66b2 25%, 
+    #a855f7 50%, 
+    #06b6d4 75%, 
+    #ff4da6 100%
+  );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-size: 200% 200%;
-  animation: gradientShift 3s ease infinite;
+  background-size: 300% 300%;
+  animation: gradientShift 4s ease infinite;
   line-height: 1.1;
-  padding-bottom: 0.2em; /* Prevent descender clipping for letters like 'g', 'y', 'p' */
-  display: inline-block; /* Ensure padding is respected */
+  padding-bottom: 0.2em;
+  display: inline-block;
 }
 
-/* Neon Border Effect */
+/* Glow text effect */
+.glow-text {
+  text-shadow: 
+    0 0 5px rgba(255, 77, 166, 0.5),
+    0 0 10px rgba(255, 77, 166, 0.3),
+    0 0 15px rgba(255, 77, 166, 0.2);
+}
+
+/* Enhanced Neon Border Effect */
 .neon-border {
   border: 2px solid transparent;
-  background: linear-gradient(135deg, rgba(255, 77, 166, 0.1), rgba(255, 102, 178, 0.1)) padding-box,
-              linear-gradient(135deg, #ff4da6, #ff66b2) border-box;
-  border-radius: 1rem;
+  background: 
+    linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(30, 30, 30, 0.8)) padding-box,
+    linear-gradient(135deg, #ff4da6, #a855f7, #06b6d4, #ff4da6) border-box;
+  border-radius: 1.5rem;
+  animation: neonPulse 3s ease-in-out infinite alternate;
 }
 
-/* Custom Animations - Optimized for performance */
+/* Interactive Button Effects */
+.interactive {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interactive:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.interactive::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 77, 166, 0.1), rgba(168, 85, 247, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.interactive:hover::after {
+  opacity: 1;
+}
+
+/* Enhanced Custom Animations - GPU Accelerated */
 @keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%, 100% { 
+    background-position: 0% 50%; 
+    transform: translateZ(0);
+  }
+  50% { 
+    background-position: 100% 50%; 
+    transform: translateZ(0);
+  }
+}
+
+@keyframes auroraFloat {
+  0%, 100% { 
+    background-position: 0% 0%, 100% 100%, 50% 50%, 0% 100%;
+  }
+  33% { 
+    background-position: 30% 30%, 70% 70%, 80% 20%, 20% 80%;
+  }
+  66% { 
+    background-position: 80% 80%, 20% 20%, 20% 80%, 80% 20%;
+  }
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes neonPulse {
+  0% { 
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+  50% { 
+    background-position: 100% 50%;
+    filter: hue-rotate(90deg);
+  }
+  100% { 
+    background-position: 200% 50%;
+    filter: hue-rotate(180deg);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px) translateZ(0); }
-  50% { transform: translateY(-10px) translateZ(0); }
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg) translateZ(0); 
+  }
+  33% { 
+    transform: translateY(-10px) rotate(1deg) translateZ(0); 
+  }
+  66% { 
+    transform: translateY(-5px) rotate(-1deg) translateZ(0); 
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px) translateZ(0); 
+  }
+  25% { 
+    transform: translateY(-15px) translateX(5px) translateZ(0); 
+  }
+  50% { 
+    transform: translateY(-8px) translateX(-3px) translateZ(0); 
+  }
+  75% { 
+    transform: translateY(-12px) translateX(8px) translateZ(0); 
+  }
 }
 
 @keyframes pulse-pink {
   0%, 100% { 
-    box-shadow: 0 0 20px rgba(255, 77, 166, 0.4);
+    box-shadow: 
+      0 0 20px rgba(255, 77, 166, 0.4),
+      0 0 40px rgba(255, 77, 166, 0.2);
     transform: scale(1) translateZ(0);
   }
   50% { 
-    box-shadow: 0 0 40px rgba(255, 77, 166, 0.8);
+    box-shadow: 
+      0 0 30px rgba(255, 77, 166, 0.6),
+      0 0 60px rgba(255, 77, 166, 0.4),
+      0 0 80px rgba(168, 85, 247, 0.3);
     transform: scale(1.02) translateZ(0);
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% { 
+    opacity: 0.3; 
+    transform: scale(0.8) translateZ(0); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.2) translateZ(0); 
+  }
+}
+
+@keyframes slideInFromBottom {
+  from { 
+    opacity: 0; 
+    transform: translateY(50px) translateZ(0); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) translateZ(0); 
+  }
+}
+
+@keyframes slideInFromLeft {
+  from { 
+    opacity: 0; 
+    transform: translateX(-50px) translateZ(0); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateX(0) translateZ(0); 
+  }
+}
+
+@keyframes slideInFromRight {
+  from { 
+    opacity: 0; 
+    transform: translateX(50px) translateZ(0); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateX(0) translateZ(0); 
   }
 }
 
@@ -157,6 +367,36 @@ body {
   from, to { border-color: transparent; }
   50% { border-color: #ff4da6; }
 }
+
+/* Particle animation */
+@keyframes particleFloat {
+  0% { 
+    transform: translateY(100vh) translateX(0) rotate(0deg) scale(0);
+    opacity: 0;
+  }
+  10% { 
+    opacity: 1;
+    transform: translateY(90vh) translateX(10px) rotate(45deg) scale(1);
+  }
+  90% { 
+    opacity: 1;
+    transform: translateY(10vh) translateX(-10px) rotate(315deg) scale(1);
+  }
+  100% { 
+    transform: translateY(-10vh) translateX(0) rotate(360deg) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Utility animation classes */
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-float-slow { animation: floatSlow 8s ease-in-out infinite; }
+.animate-pulse-pink { animation: pulse-pink 2s ease-in-out infinite; }
+.animate-twinkle { animation: twinkle 2s ease-in-out infinite; }
+.animate-glow { animation: neonPulse 3s ease-in-out infinite; }
+.animate-slide-up { animation: slideInFromBottom 0.6s ease-out; }
+.animate-slide-left { animation: slideInFromLeft 0.6s ease-out; }
+.animate-slide-right { animation: slideInFromRight 0.6s ease-out; }
 
 @keyframes glow {
   0%, 100% { 
