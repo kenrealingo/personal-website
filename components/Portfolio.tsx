@@ -68,80 +68,19 @@ export default function Portfolio() {
       id: 1,
       title: "Sow Sure AI – Agricultural Lending Risk Assessment Platform",
       description: "Sow Sure AI is an enterprise-grade agricultural lending risk assessment platform for the Philippines. It combines AI-driven financial analysis, satellite data, and government hazard reports to provide intelligent, data-driven loan decisions for farmers.",
-      image: "/api/placeholder/600/400",
+      image: "/images/sowsure-screenshot.jpg", // You'll upload your image here
       technologies: ["Next.js 14+", "TypeScript", "Tailwind CSS", "Node.js", "Python", "OpenAI GPT-4o-mini", "Leaflet", "ULAP Hazard API"],
-      liveUrl: "#",
-      githubUrl: "#",
+      liveUrl: "https://drive.google.com/file/d/1Q4qyEKveehaD3Id9YmlvxE32GEZnts4u/view?usp=drive_link",
+      githubUrl: "https://github.com/gerdguerrero/Sow-Sure-AI-Final",
       category: "AI/ML",
       featured: true,
       gradient: "from-green-500 via-emerald-500 to-teal-500",
       impact: "Reduced default rates, faster loan processing, expanded access to financing, sustainable agriculture support",
       features: ["AI-powered risk scoring", "Hazard data integration", "Automated PDF extraction", "Interactive dashboard with visualizations", "Responsive design"]
-    },
-    {
-      id: 2,
-      title: "Satellite Image Classification",
-      description: "Advanced machine learning model for satellite image classification using computer vision techniques to identify agricultural patterns, land use changes, and environmental monitoring for precision agriculture applications.",
-      image: "/api/placeholder/600/400",
-      technologies: ["Python", "TensorFlow", "OpenCV", "Google Earth Engine", "Jupyter", "Scikit-learn"],
-      liveUrl: "#",
-      githubUrl: "#",
-      category: "AI/ML",
-      featured: true,
-      gradient: "from-blue-500 via-cyan-500 to-pink-500"
-    },
-    {
-      id: 3,
-      title: "Social Media Analytics Tool",
-      description: "Advanced analytics platform for tracking social media performance, audience engagement, and campaign effectiveness across multiple platforms with real-time reporting capabilities.",
-      image: "/api/placeholder/600/400",
-      technologies: ["React", "Node.js", "Python", "Tableau", "AWS", "Redis"],
-      liveUrl: "#",
-      githubUrl: "#",
-      category: "Analytics",
-      featured: false,
-      gradient: "from-purple-500 via-pink-500 to-orange-500"
-    },
-    {
-      id: 4,
-      title: "Automated Event Management System",
-      description: "Comprehensive event management platform with automated workflows, attendee tracking, sponsorship management, and real-time analytics for large-scale events and conferences.",
-      image: "/api/placeholder/600/400",
-      technologies: ["Next.js", "TypeScript", "PostgreSQL", "Stripe", "SendGrid"],
-      liveUrl: "#",
-      githubUrl: "#",
-      category: "Web App",
-      featured: false,
-      gradient: "from-green-500 via-blue-500 to-purple-500"
-    },
-    {
-      id: 5,
-      title: "Climate Data Visualization",
-      description: "Interactive climate data visualization tool that processes satellite imagery and weather data to create compelling visual narratives about climate change impacts and trends.",
-      image: "/api/placeholder/600/400",
-      technologies: ["Python", "Plotly", "Pandas", "QGIS", "Flask", "Heroku"],
-      liveUrl: "#",
-      githubUrl: "#",
-      category: "Data Viz",
-      featured: false,
-      gradient: "from-cyan-500 via-blue-500 to-pink-500"
-    },
-    {
-      id: 6,
-      title: "AI-Powered Content Generator",
-      description: "Machine learning application using NLP models to generate high-quality marketing content, social media posts, and technical documentation with customizable tone and style.",
-      image: "/api/placeholder/600/400",
-      technologies: ["Python", "Hugging Face", "LangChain", "Streamlit", "OpenAI API"],
-      liveUrl: "#",
-      githubUrl: "#",
-      category: "AI/ML",
-      featured: false,
-      gradient: "from-pink-500 via-red-500 to-purple-500"
     }
   ];
 
   const featuredProjects = projects.filter(p => p.featured);
-  const otherProjects = projects.filter(p => !p.featured);
 
   return (
     <section id="portfolio" className="py-20 px-6 relative overflow-hidden">
@@ -365,97 +304,6 @@ export default function Portfolio() {
                             </Link>
                           </Button>
                         </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Other Projects Grid */}
-          <motion.div variants={containerVariants}>
-            <motion.h3 
-              className="text-3xl font-bold mb-12 text-center"
-              variants={projectVariants}
-            >
-              Other Projects
-            </motion.h3>
-            
-            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
-              {otherProjects.map((project) => (
-                <motion.div
-                  key={project.id}
-                  variants={projectVariants}
-                  whileHover={{ y: -5, scale: 1.03 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                >
-                  <Card className="glass border-pink-500/20 group hover:shadow-pink-lg hover:border-pink-500/40 transition-all duration-300 h-full">
-                    <CardContent className="p-6">
-                      {/* Project Header */}
-                      <div className="flex items-start justify-between mb-4">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-2">
-                            <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${project.gradient}`} />
-                            <Badge className="text-xs bg-pink-500/10 text-pink-300 border-pink-500/20">
-                              {project.category}
-                            </Badge>
-                          </div>
-                          <h3 className="text-xl font-semibold text-white group-hover:text-pink-300 transition-colors duration-300 mb-3">
-                            {project.title}
-                          </h3>
-                        </div>
-                      </div>
-                      
-                      <p className="text-white/70 text-sm leading-relaxed mb-4 line-clamp-3">
-                        {project.description}
-                      </p>
-                      
-                      {/* Technologies */}
-                      <div className="flex flex-wrap gap-1 mb-4">
-                        {project.technologies.slice(0, 4).map((tech) => (
-                          <Badge 
-                            key={tech}
-                            variant="secondary" 
-                            className="text-xs bg-dark-800/50 text-white/80 border-pink-500/10"
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
-                        {project.technologies.length > 4 && (
-                          <Badge 
-                            variant="secondary" 
-                            className="text-xs bg-pink-500/20 text-pink-300"
-                          >
-                            +{project.technologies.length - 4}
-                          </Badge>
-                        )}
-                      </div>
-                      
-                      {/* Links */}
-                      <div className="flex gap-2 mt-auto pt-4">
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className="flex-1 text-xs border-pink-500/30 text-pink-300 hover:bg-pink-500/10"
-                          asChild
-                        >
-                          <Link href={project.liveUrl}>
-                            <Eye className="w-3 h-3 mr-1" />
-                            View
-                          </Link>
-                        </Button>
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className="flex-1 text-xs border-purple-500/30 text-purple-300 hover:bg-purple-500/10"
-                          asChild
-                        >
-                          <Link href={project.githubUrl}>
-                            <Github className="w-3 h-3 mr-1" />
-                            Code
-                          </Link>
-                        </Button>
                       </div>
                     </CardContent>
                   </Card>
