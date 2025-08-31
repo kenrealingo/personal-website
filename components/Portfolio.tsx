@@ -69,6 +69,7 @@ export default function Portfolio() {
       title: "Sow Sure AI – Agricultural Lending Risk Assessment Platform",
       description: "Sow Sure AI is an enterprise-grade agricultural lending risk assessment platform for the Philippines. It combines AI-driven financial analysis, satellite data, and government hazard reports to provide intelligent, data-driven loan decisions for farmers.",
       image: "/images/sowsure-screenshot.jpg", // You'll upload your image here
+      video: "/images/sowsurevid.mp4", // Video banner for the project
       technologies: ["Next.js 14+", "TypeScript", "Tailwind CSS", "Node.js", "Python", "OpenAI GPT-4o-mini", "Leaflet", "ULAP Hazard API"],
       liveUrl: "https://drive.google.com/file/d/1Q4qyEKveehaD3Id9YmlvxE32GEZnts4u/view?usp=drive_link",
       githubUrl: "https://github.com/gerdguerrero/Sow-Sure-AI-Final",
@@ -154,22 +155,38 @@ export default function Portfolio() {
                 >
                   <Card className="glass border-pink-500/20 overflow-hidden group hover:shadow-pink-xl hover:border-pink-500/40 transition-all duration-500">
                     <CardContent className="p-0">
-                      {/* Project Image */}
+                      {/* Project Video/Image */}
                       <div className="relative h-64 overflow-hidden">
-                        <motion.div 
-                          className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-90`}
-                          whileHover={{ scale: 1.1 }}
-                          transition={{ duration: 0.6 }}
-                        />
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <motion.div
-                            className="text-8xl font-bold text-white/20 select-none"
-                            initial={{ scale: 1 }}
-                            whileHover={{ scale: 1.1, rotate: 5 }}
+                        {project.video ? (
+                          <video
+                            className="w-full h-full object-cover"
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
                           >
-                            {project.category}
-                          </motion.div>
-                        </div>
+                            <source src={project.video} type="video/mp4" />
+                            {/* Fallback gradient if video fails to load */}
+                            <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-90`} />
+                          </video>
+                        ) : (
+                          <>
+                            <motion.div 
+                              className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-90`}
+                              whileHover={{ scale: 1.1 }}
+                              transition={{ duration: 0.6 }}
+                            />
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <motion.div
+                                className="text-8xl font-bold text-white/20 select-none"
+                                initial={{ scale: 1 }}
+                                whileHover={{ scale: 1.1, rotate: 5 }}
+                              >
+                                {project.category}
+                              </motion.div>
+                            </div>
+                          </>
+                        )}
                         
                         {/* Overlay on hover */}
                         <motion.div 
