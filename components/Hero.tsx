@@ -257,7 +257,7 @@ export default function Hero() {
                          hover:scale-[1.02] hover:shadow-pink-xl interactive"
               asChild
             >
-              <a href="mailto:jlrealingo@gmail.com" className="flex items-center">
+              <a href="#contact" className="flex items-center">
                 <Mail className="mr-3 h-5 w-5" />
                 <span className="relative z-10 glow-text">Get In Touch</span>
               </a>
@@ -286,7 +286,7 @@ export default function Hero() {
               },
               { 
                 icon: Mail, 
-                href: "mailto:jlrealingo@gmail.com", 
+                href: "https://mail.google.com/mail/?view=cm&fs=1&to=jlrealingo@gmail.com", 
                 label: "Email",
                 color: "hover:text-pink-400 hover:shadow-pink"
               },

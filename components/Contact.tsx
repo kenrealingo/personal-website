@@ -84,7 +84,7 @@ export default function Contact() {
       icon: Mail,
       label: "Email",
       value: "jlrealingo@gmail.com",
-      href: "mailto:jlrealingo@gmail.com"
+      href: "https://mail.google.com/mail/?view=cm&fs=1&to=jlrealingo@gmail.com"
     },
     {
       icon: MapPin,
@@ -193,6 +193,8 @@ export default function Contact() {
                           {method.href ? (
                             <Link 
                               href={method.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
                               className="text-white font-medium hover:text-pink-400 transition-colors"
                             >
                               {method.value}
