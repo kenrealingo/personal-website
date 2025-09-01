@@ -146,7 +146,7 @@ export default function About() {
               About <span className="text-gradient">Me</span>
             </motion.h2>
             <motion.p 
-              className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed"
+              className="text-xl text-foreground/70 max-w-3xl mx-auto leading-relaxed"
               variants={itemVariants}
             >
               Versatile professional bridging marketing, geospatial analysis, and machine learning innovation
@@ -241,8 +241,8 @@ export default function About() {
                     <Card className="glass border-pink-500/20 hover:border-pink-500/40 transition-all duration-300 hover:shadow-pink">
                       <CardContent className="p-4 text-center">
                         <item.icon className="w-6 h-6 text-pink-400 mx-auto mb-2" />
-                        <p className="text-xs text-white/60 mb-1">{item.label}</p>
-                        <p className="text-sm text-white font-medium">{item.value}</p>
+                        <p className="text-xs text-muted-foreground mb-1">{item.label}</p>
+                        <p className="text-sm text-foreground font-medium">{item.value}</p>
                       </CardContent>
                     </Card>
                   </motion.div>
@@ -257,7 +257,7 @@ export default function About() {
               <Card className="glass border-pink-500/20 hover:shadow-pink-lg transition-all duration-500">
                 <CardContent className="p-8">
                   <div className="space-y-6">
-                    <h3 className="text-2xl font-semibold text-white mb-6 flex items-center gap-2">
+                    <h3 className="text-2xl font-semibold text-foreground mb-6 flex items-center gap-2">
                       <motion.div
                         className="w-1 h-8 bg-gradient-to-b from-pink-500 to-purple-500 rounded-full"
                         initial={{ height: 0 }}
@@ -266,7 +266,7 @@ export default function About() {
                       />
                       My Journey
                     </h3>
-                    <p className="text-white/80 leading-relaxed text-lg">
+                    <p className="text-foreground/80 leading-relaxed text-lg">
                       Driven and versatile professional with expertise in marketing, event management, geospatial 
                       analysis, and machine learning. I thrive on turning ideas into impactful outcomes—whether 
                       scaling social media reach, securing key sponsorships, or delivering actionable insights 
@@ -274,7 +274,7 @@ export default function About() {
                       relationships, managing complex projects, and fostering collaboration, I excel at balancing 
                       strategic goals with technical execution.
                     </p>
-                    <p className="text-white/80 leading-relaxed text-lg">
+                    <p className="text-foreground/80 leading-relaxed text-lg">
                       Currently working as an AI Engineer, I focus on designing AI-driven tools for 
                       ESG risk assessment, geospatial intelligence, and data-driven decision-making. My academic 
                       background in Geology and Mining Engineering strengthens my technical foundation, allowing 
@@ -289,7 +289,7 @@ export default function About() {
               {/* Skills Section */}
               <Card className="glass border-pink-500/20 hover:shadow-pink-lg transition-all duration-500">
                 <CardContent className="p-8">
-                  <h3 className="text-2xl font-semibold text-white mb-8 flex items-center gap-2">
+                  <h3 className="text-2xl font-semibold text-foreground mb-8 flex items-center gap-2">
                     <motion.div
                       className="w-1 h-8 bg-gradient-to-b from-pink-500 to-purple-500 rounded-full"
                       initial={{ height: 0 }}
@@ -310,7 +310,7 @@ export default function About() {
                         transition={{ delay: 0.8 + index * 0.1, duration: 0.5 }}
                         whileHover={{ scale: 1.05, y: -2 }}
                       >
-                        <h4 className="text-white font-semibold text-sm mb-1">{category.name}</h4>
+                        <h4 className="text-foreground font-semibold text-sm mb-1">{category.name}</h4>
                         <p className="text-pink-300 text-xs">{category.count} skills</p>
                       </motion.div>
                     ))}
@@ -332,7 +332,7 @@ export default function About() {
                         whileHover={{ scale: 1.1, y: -2 }}
                       >
                         <Badge 
-                          className="px-4 py-2 text-sm font-medium bg-dark-800/50 text-white border-pink-500/30 
+                          className="px-4 py-2 text-sm font-medium bg-card/50 text-foreground border-primary/30 
                                    hover:bg-pink-500/20 hover:border-pink-400/50 hover:text-pink-200
                                    transition-all duration-300 cursor-default backdrop-blur-sm"
                         >

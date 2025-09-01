@@ -192,12 +192,12 @@ export default function Hero() {
                           leading-[0.85] sm:leading-[0.85] md:leading-[0.85] lg:leading-[0.85] 
                           pb-1 sm:pb-2 md:pb-3 lg:pb-4 animate-slide-up">
               {/* Mobile: stacked layout, Tablet+: inline layout */}
-              <span className="block sm:inline text-white glow-text sm:mr-6 mb-2 sm:mb-0">Ken</span>
+              <span className="block sm:inline text-foreground glow-text sm:mr-6 mb-2 sm:mb-0">Ken</span>
               <span className="block sm:inline text-gradient animate-glow">Realingo</span>
             </h1>
             
             <motion.h2 
-              className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-white/90 
+              className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-foreground/90 
                         px-4 sm:px-0 pt-1 sm:pt-2 glow-text animate-slide-up"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -214,7 +214,7 @@ export default function Hero() {
             transition={{ delay: 1.2, duration: 0.6 }}
             className="max-w-4xl mx-auto px-4 sm:px-0"
           >
-            <p className="text-base sm:text-xl md:text-2xl text-white/80 font-light 
+            <p className="text-base sm:text-xl md:text-2xl text-foreground/80 font-light 
                          leading-relaxed min-h-[2rem] sm:min-h-[3rem] glow-text">
               {typedText}
               <motion.span
@@ -252,7 +252,7 @@ export default function Hero() {
               variant="outline"
               className="group relative overflow-hidden px-8 py-4 
                          text-base sm:text-lg font-semibold w-full sm:w-auto
-                         glass neon-border text-pink-300 hover:text-white
+                         glass neon-border text-primary hover:text-foreground
                          shadow-pink transition-all duration-300
                          hover:scale-[1.02] hover:shadow-pink-xl interactive"
               asChild
@@ -299,7 +299,7 @@ export default function Hero() {
                 whileHover={{ scale: 1.08, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className={`p-4 rounded-2xl bg-dark-800/30 backdrop-blur-sm border border-pink-500/20
-                           text-white/70 transition-all duration-300 ${social.color}
+                           text-foreground/70 transition-all duration-300 ${social.color}
                            hover:bg-pink-500/10 hover:border-pink-400/50 interactive`}
                 aria-label={social.label}
                 initial={{ opacity: 0, y: 20 }}
@@ -323,7 +323,7 @@ export default function Hero() {
           <motion.button
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-            className="flex flex-col items-center gap-2 text-white/60 hover:text-pink-400 transition-all duration-300 cursor-pointer group
+            className="flex flex-col items-center gap-2 text-foreground/60 hover:text-primary transition-all duration-300 cursor-pointer group
                        p-3 rounded-xl hover:bg-white/5 backdrop-blur-sm interactive"
             onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
             style={{ willChange: 'transform' }}

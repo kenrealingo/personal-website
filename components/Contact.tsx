@@ -68,7 +68,7 @@ export default function Contact() {
       name: "GitHub",
       icon: Github,
       url: "https://github.com/kenrealingo",
-      color: "text-white hover:text-pink-400"
+      color: "text-foreground hover:text-primary"
     },
     {
       name: "LinkedIn", 
@@ -151,7 +151,7 @@ export default function Contact() {
               </h2>
             </motion.div>
             <motion.p 
-              className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed"
+                            className="text-xl text-foreground/80 max-w-2xl mx-auto leading-relaxed"
               variants={itemVariants}
             >
               Ready to collaborate on your next project? Let&apos;s connect and create something amazing together!
@@ -171,7 +171,7 @@ export default function Contact() {
                       animate={{ height: 48 }}
                       transition={{ delay: 0.5, duration: 0.8 }}
                     />
-                    <h3 className="text-3xl font-bold text-white">Contact Info</h3>
+                    <h3 className="text-3xl font-bold text-foreground">Contact Info</h3>
                     <Sparkles className="w-8 h-8 text-pink-400 ml-auto" />
                   </div>
 
@@ -189,18 +189,18 @@ export default function Contact() {
                           <method.icon className="w-6 h-6 text-pink-400" />
                         </div>
                         <div className="flex-1">
-                          <p className="text-white/60 text-sm">{method.label}</p>
+                          <p className="text-muted-foreground text-sm">{method.label}</p>
                           {method.href ? (
                             <Link 
                               href={method.href}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-white font-medium hover:text-pink-400 transition-colors"
+                              className="text-foreground font-medium hover:text-primary transition-colors"
                             >
                               {method.value}
                             </Link>
                           ) : (
-                            <p className="text-white font-medium">{method.value}</p>
+                            <p className="text-foreground font-medium">{method.value}</p>
                           )}
                         </div>
                         {method.href && <ExternalLink className="w-4 h-4 text-pink-400/60" />}
@@ -222,7 +222,7 @@ export default function Contact() {
                       animate={{ height: 48 }}
                       transition={{ delay: 0.7, duration: 0.8 }}
                     />
-                    <h3 className="text-3xl font-bold text-white">Connect</h3>
+                    <h3 className="text-3xl font-bold text-foreground">Connect</h3>
                     <ExternalLink className="w-8 h-8 text-purple-400 ml-auto" />
                   </div>
 
@@ -243,7 +243,7 @@ export default function Contact() {
                           <Button
                             variant="outline"
                             size="lg"
-                            className="w-full justify-start gap-4 h-16 border-pink-500/20 bg-dark-800/50 hover:bg-pink-500/10 hover:border-pink-500/50 text-white hover:text-pink-400 transition-all duration-300"
+                            className="w-full justify-start gap-4 h-16 border-primary/20 bg-card/50 hover:bg-primary/10 hover:border-primary/50 text-foreground hover:text-primary transition-all duration-300"
                           >
                             <div className="w-10 h-10 rounded-full bg-pink-500/20 flex items-center justify-center">
                               <social.icon className="w-5 h-5" />
@@ -262,10 +262,10 @@ export default function Contact() {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.8 }}
                   >
-                    <p className="text-white/80 mb-2">
-                      <strong className="text-pink-400">Open to Opportunities</strong>
+                    <p className="text-foreground/80 mb-2">
+                      <strong className="text-primary">Open to Opportunities</strong>
                     </p>
-                    <p className="text-white/60 text-sm">
+                    <p className="text-muted-foreground text-sm">
                       Always excited to discuss new projects and collaborations!
                     </p>
                   </motion.div>

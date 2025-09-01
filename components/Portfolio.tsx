@@ -130,7 +130,7 @@ export default function Portfolio() {
             <motion.h2 className="text-5xl md:text-6xl font-bold mb-6">
               My <span className="text-gradient">Portfolio</span>
             </motion.h2>
-            <motion.p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+            <motion.p className="text-xl text-foreground/70 max-w-3xl mx-auto leading-relaxed">
               Showcasing innovative solutions across AI/ML, geospatial analysis, and web development
             </motion.p>
           </motion.div>
@@ -178,7 +178,7 @@ export default function Portfolio() {
                             />
                             <div className="absolute inset-0 flex items-center justify-center">
                               <motion.div
-                                className="text-8xl font-bold text-white/20 select-none"
+                                className="text-8xl font-bold text-foreground/20 select-none"
                                 initial={{ scale: 1 }}
                                 whileHover={{ scale: 1.1, rotate: 5 }}
                               >
@@ -244,7 +244,7 @@ export default function Portfolio() {
                       {/* Project Details */}
                       <div className="p-8">
                         <div className="flex items-start justify-between mb-4">
-                          <h3 className="text-2xl font-bold text-white group-hover:text-pink-300 transition-colors duration-300">
+                          <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                             {project.title}
                           </h3>
                           <Badge className="bg-pink-500/20 text-pink-300 border-pink-500/30">
@@ -252,7 +252,7 @@ export default function Portfolio() {
                           </Badge>
                         </div>
                         
-                        <p className="text-white/80 leading-relaxed mb-6">
+                        <p className="text-foreground/80 leading-relaxed mb-6">
                           {project.description}
                         </p>
                         
@@ -260,7 +260,7 @@ export default function Portfolio() {
                         {project.features && (
                           <div className="mb-6">
                             <h4 className="text-lg font-semibold text-pink-300 mb-3">Key Features</h4>
-                            <ul className="list-disc list-inside text-white/70 space-y-1">
+                            <ul className="list-disc list-inside text-foreground/70 space-y-1">
                               {project.features.map((feature, idx) => (
                                 <li key={idx} className="text-sm">{feature}</li>
                               ))}
@@ -272,7 +272,7 @@ export default function Portfolio() {
                         {project.impact && (
                           <div className="mb-6">
                             <h4 className="text-lg font-semibold text-emerald-300 mb-2">Impact</h4>
-                            <p className="text-white/70 text-sm">{project.impact}</p>
+                            <p className="text-foreground/70 text-sm">{project.impact}</p>
                           </div>
                         )}
                         
@@ -290,7 +290,7 @@ export default function Portfolio() {
                             >
                               <Badge 
                                 variant="secondary" 
-                                className="text-xs bg-dark-800/50 text-white/90 border-pink-500/20 hover:border-pink-400/40 transition-all duration-300"
+                                className="text-xs bg-card/50 text-foreground/90 border-primary/20 hover:border-primary/40 transition-all duration-300"
                               >
                                 {tech}
                               </Badge>
