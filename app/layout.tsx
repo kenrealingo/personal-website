@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import "@fontsource/inter/300.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
 import "./globals.css";
-
-const spaceGrotesk = Space_Grotesk({ 
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-space-grotesk"
-});
 
 export const metadata: Metadata = {
   title: "Ken Realingo - AI Engineer",
@@ -35,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`dark ${spaceGrotesk.variable}`}>
+    <html lang="en" className="dark">
       <body 
         className="font-sans antialiased animated-bg"
         suppressHydrationWarning={true}

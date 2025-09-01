@@ -229,9 +229,9 @@ export default function About() {
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { icon: MapPin, label: "Location", value: "Quezon City, PH" },
-                  { icon: Briefcase, label: "Role", value: "ML Engineer" },
+                  { icon: Briefcase, label: "Role", value: "AI Engineer" },
                   { icon: GraduationCap, label: "Education", value: "UP Diliman" },
-                  { icon: User, label: "Experience", value: "5+ Years" },
+                  { icon: User, label: "Experience", value: "3 Years" },
                 ].map((item) => (
                   <motion.div
                     key={item.label}
