@@ -10,6 +10,7 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Home, User, Briefcase, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const navigation = [
   { name: "Home", href: "#home", icon: Home },
@@ -80,7 +81,7 @@ export default function Navigation() {
       <motion.header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          "backdrop-blur-xl bg-dark-900/80 border-b border-pink-500/20"
+          "backdrop-blur-xl bg-card/80 border-b border-border/50"
         )}
         initial={{ y: 0 }}
         animate={{ y: isVisible ? 0 : -100 }}
@@ -99,7 +100,7 @@ export default function Navigation() {
               <div className="w-10 h-10 bg-gradient-to-br from-pink-500 to-purple-500 rounded-xl flex items-center justify-center">
                 <span className="text-white font-bold text-lg">KR</span>
               </div>
-              <span className="text-white font-bold text-xl hidden sm:block">Ken Realingo</span>
+              <span className="text-foreground font-bold text-xl hidden sm:block">Ken Realingo</span>
             </motion.div>
 
             {/* Desktop Navigation */}
@@ -115,10 +116,10 @@ export default function Navigation() {
                     variant="ghost"
                     onClick={() => scrollToSection(item.href)}
                     className={cn(
-                      "relative px-4 py-2 text-white/80 hover:text-white transition-all duration-300",
-                      "hover:bg-pink-500/20 rounded-xl",
+                      "relative px-4 py-2 text-foreground/80 hover:text-foreground transition-all duration-300",
+                      "hover:bg-primary/20 rounded-xl",
                       activeSection === item.href.substring(1) && 
-                      "text-pink-300 bg-pink-500/10"
+                      "text-primary bg-primary/10"
                     )}
                   >
                     <item.icon className="w-4 h-4 mr-2" />
@@ -127,7 +128,7 @@ export default function Navigation() {
                     {/* Active indicator */}
                     {activeSection === item.href.substring(1) && (
                       <motion.div
-                        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-pink-400 rounded-full"
+                        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-primary rounded-full"
                         layoutId="activeTab"
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
@@ -137,24 +138,36 @@ export default function Navigation() {
                   </Button>
                 </motion.div>
               ))}
+              
+              {/* Theme Toggle */}
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="ml-2"
+              >
+                <ThemeToggle />
+              </motion.div>
             </nav>
 
-            {/* Mobile Menu Button */}
-            <motion.div
-              className="md:hidden"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setIsOpen(!isOpen)}
-                className="text-white hover:text-pink-400 hover:bg-pink-500/10"
+            {/* Mobile Menu Button and Theme Toggle */}
+            <div className="md:hidden flex items-center gap-2">
+              <ThemeToggle />
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
               >
-                {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-              </Button>
-            </motion.div>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="text-foreground hover:text-primary hover:bg-primary/10"
+                >
+                  {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                </Button>
+              </motion.div>
+            </div>
           </div>
         </div>
       </motion.header>
@@ -163,7 +176,7 @@ export default function Navigation() {
       <motion.div
         className={cn(
           "fixed inset-0 z-40 md:hidden",
-          "backdrop-blur-xl bg-dark-900/95"
+          "backdrop-blur-xl bg-background/95"
         )}
         initial={{ opacity: 0, y: -20 }}
         animate={{ 
@@ -192,11 +205,11 @@ export default function Navigation() {
                 size="lg"
                 onClick={() => scrollToSection(item.href)}
                 className={cn(
-                  "text-2xl font-semibold px-8 py-4 text-white/80 hover:text-white",
-                  "hover:bg-pink-500/20 rounded-2xl transition-all duration-300",
+                  "text-2xl font-semibold px-8 py-4 text-foreground/80 hover:text-foreground",
+                  "hover:bg-primary/20 rounded-2xl transition-all duration-300",
                   "flex items-center gap-4",
                   activeSection === item.href.substring(1) && 
-                  "text-pink-300 bg-pink-500/10 scale-110"
+                  "text-primary bg-primary/10 scale-110"
                 )}
               >
                 <item.icon className="w-6 h-6" />
@@ -212,7 +225,7 @@ export default function Navigation() {
             animate={{ opacity: isOpen ? 1 : 0 }}
             transition={{ duration: 0.3, delay: 0.4 }}
           >
-            <p className="text-white/60 text-sm">
+            <p className="text-muted-foreground text-sm">
               Scroll to explore my work
             </p>
           </motion.div>

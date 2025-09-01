@@ -61,7 +61,18 @@ const config: Config = {
           800: "#ad1052",
           900: "#8f1147",
         },
-        // Dark theme grays
+        // Theme-aware surface colors
+        surface: {
+          50: "var(--surface-50)",
+          100: "var(--surface-100)",
+          200: "var(--surface-200)",
+          300: "var(--surface-300)",
+          600: "var(--surface-600)",
+          700: "var(--surface-700)",
+          800: "var(--surface-800)",
+          900: "var(--surface-900)",
+        },
+        // Dark theme grays (kept for backward compatibility)
         dark: {
           50: "#f8f9fa",
           100: "#f1f3f4",
