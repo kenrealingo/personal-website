@@ -42,11 +42,11 @@ A stunning, performance-optimized portfolio website for AI Engineer Ken Realingo
 - **TypeScript 5.0+** for type safety
 
 ### **Styling & UI**
-- **Tailwind CSS 3.4+** with custom dark theme configuration
+- **Tailwind CSS 4.1+** with custom dark theme configuration
 - **shadcn/ui** components with custom overrides
 - **Framer Motion 12.23+** for advanced animations
 - **Lucide React** for consistent iconography
-- **Space Grotesk** font family from Google Fonts
+- **Inter Font** via @fontsource for offline performance
 
 ### **Form & Validation**
 - **React Hook Form 7.62+** for performant forms
@@ -63,25 +63,39 @@ A stunning, performance-optimized portfolio website for AI Engineer Ken Realingo
 ```
 personal-website/
 ├── app/                    # Next.js App Router
-│   ├── layout.tsx         # Root layout with metadata
+│   ├── layout.tsx         # Root layout with metadata & fonts
 │   ├── page.tsx           # Main homepage
 │   ├── globals.css        # Global styles & animations
 │   └── favicon.ico        # Site favicon
 ├── components/            # Reusable UI components
 │   ├── ui/               # shadcn/ui base components
+│   │   ├── badge.tsx     # Badge component
+│   │   ├── button.tsx    # Button component  
+│   │   └── card.tsx      # Card component
 │   ├── Hero.tsx          # Landing section with animations
-│   ├── About.tsx         # Skills & bio section
-│   ├── Portfolio.tsx     # Projects showcase
-│   ├── Contact.tsx       # Contact form & info
+│   ├── About.tsx         # Skills & bio with profile photo
+│   ├── Portfolio.tsx     # Projects showcase with video
+│   ├── Contact.tsx       # Contact info & social links
 │   └── Navigation.tsx    # Responsive navigation
 ├── lib/
-│   └── utils.ts          # Utility functions
+│   └── utils.ts          # Utility functions (cn helper)
 ├── public/               # Static assets
-│   └── *.svg            # Icon assets
-└── docs/                # Documentation
-    ├── README.md
-    ├── CUSTOMIZATION.md
-    └── OPTIMIZATION_SUMMARY.md
+│   ├── images/          # Profile photo & project media
+│   │   ├── profile photo.jpg  # Profile photo
+│   │   └── sowsurevid.mp4     # SowSure project video
+│   └── *.svg            # Icon assets (Next.js, Vercel, etc)
+├── docs/                # Documentation
+│   ├── PROJECT_STRUCTURE.md    # Detailed project structure
+│   ├── CUSTOMIZATION.md        # Customization guide
+│   ├── DEPLOYMENT.md          # Deployment instructions
+│   ├── OPTIMIZATION_SUMMARY.md # Performance optimizations
+│   └── CONTRIBUTING.md        # Contributing guidelines
+└── Configuration files
+    ├── package.json       # Dependencies & scripts
+    ├── tailwind.config.ts # Tailwind configuration  
+    ├── next.config.ts     # Next.js configuration
+    ├── tsconfig.json      # TypeScript configuration
+    └── eslint.config.mjs  # ESLint configuration
 ```
 
 ## 🚀 Quick Start
